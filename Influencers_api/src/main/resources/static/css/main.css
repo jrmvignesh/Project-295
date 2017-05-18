@@ -1,0 +1,419 @@
+.wordBreak {
+    overflow-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /*word-wrap: break-word;*/
+    /*overflow-x: visible;*/
+
+    /*!* Non standard for webkit *!*/
+    /*!*word-break: break-word;*!*/
+
+    /*-webkit-hyphens: auto;*/
+    /*-moz-hyphens: auto;*/
+    /*-ms-hyphens: auto;*/
+    /*hyphens: auto;*/
+}
+
+body {
+    height: 100%;
+    font-family: 'Comfortaa', cursive, Arial;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a {
+    transition-property: color;
+    transition-duration: 1s;
+}
+
+a:hover {
+    color: #96d9ff;
+    text-decoration: none;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 0;
+}
+
+nav > a {
+    display: inline-block;
+    border: 2px solid white;
+    padding: 12px 20px;
+    border-radius: 10%;
+    background-color: transparent;
+    color: white;
+    margin-right: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition-property: color, background-color, border-color;
+    transition-duration: 1s;
+}
+
+nav > a:hover {
+    border: 2px solid #96d9ff;
+    color: #96d9ff;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+nav > a:visited {
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+}
+
+#logoutButton {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+
+.mobileNavigationBar {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    height: 50px;
+    padding: 10px;
+    display: none;
+}
+
+.normalNavigationBar {
+    display: flex;
+}
+
+#myCarousel {
+    height: 100%;
+    z-index: -1;
+}
+
+.carousel-inner img {
+    display: inline-block;
+    width: 100%;
+    max-height: 100%;
+}
+
+.glyphicon-chevron-left {
+    visibility: hidden;
+}
+
+.glyphicon-chevron-right {
+    visibility: hidden;
+}
+
+.introBox {
+    position: fixed;
+    z-index: 0;
+    top: 0px;
+    left: 20px;
+    color: white;
+    font-weight: 700;
+}
+
+.backgroundBlack {
+    background-image: url("../images/ls.jpg");
+}
+
+#loginForm {
+    border: 1px solid white;
+    border-radius: 2%;
+    background-color: white;
+    margin: 170px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+#loginForm > input {
+    margin: 20px 0px 20px 0px;
+    padding: 15px;
+}
+
+#loginForm > input[type="submit"] {
+    background-color: #4794ff;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#loginForm > #error {
+    background-color: rgba(202, 50, 87, 0.5);
+    padding: 20px;
+    color: white;
+    font-size: 1rem;
+    margin: 10px 10px 30px 10px;
+}
+
+#signupForm > #error {
+    background-color: rgba(202, 50, 87, 0.5);
+    padding: 20px;
+    color: white;
+    font-size: 1rem;
+    margin: 10px 10px 30px 10px;
+}
+
+#signupForm {
+    border: 1px solid white;
+    border-radius: 1%;
+    margin: 170px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+#signupForm input {
+    margin: 20px 0px 20px 0px;
+    padding: 15px;
+}
+
+#signupForm input[type="text"], input[type="password"], input[type="email"] {
+    width: 70%;
+}
+
+#signupForm input[type="submit"] {
+    background-color: #66abff;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+}
+
+#signupForm > div {
+    display: flex;
+}
+
+#signupForm > div > div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50%;
+}
+
+#signupForm > div > div > div > button {
+    background-color: #4794FF;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    color: white;
+    font-size: 1rem;
+}
+
+.boxShadowBig {
+    border: 1px solid rgba(103, 103, 103, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+}
+
+.boxShadowBigStatus {
+    border: 0.5px solid rgba(51, 122, 183, 0.8);
+    box-shadow: 0px 1px 3px rgba(51, 122, 183, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+}
+
+.boxShadowSmall {
+    border: 1px solid rgba(103, 103, 103, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 6px rgba(103, 103, 103, 0.5);
+}
+
+.likeImage {
+    background: url("../images/like.png");
+}
+
+.searchInput {
+    position: absolute;
+    left: 30%;
+    top: 9px;
+    height: 80%;
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 2.5rem;
+    border: none;
+    padding: 5px;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+
+.searchInput:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.addFriendButton {
+    transition-property: color, background-color;
+    transition-duration: 1.5s;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.addFriendButton:hover {
+    color: #0b4385;
+    background-color: #cacaca;
+}
+
+#status {
+    -webkit-animation: statusAnimation 5s;
+    -moz-animation: statusAnimation 5s;
+    -o-animation: statusAnimation 5s;
+    animation: statusAnimation 5s;
+}
+
+@-webkit-keyframes statusAnimation {
+    0% {
+        top: -20%;
+    }
+    30% {
+        top: 15%;
+    }
+    40% {
+        top: 15%;
+    }
+    50% {
+        top: 15%;
+    }
+    60% {
+        top: 15%;
+    }
+    70% {
+        top: 15%;
+    }
+    100% {
+        top: -20%
+    }
+}
+
+@-moz-keyframes statusAnimation {
+    0% {
+        top: -20%;
+    }
+    30% {
+        top: 15%;
+    }
+    40% {
+        top: 15%;
+    }
+    50% {
+        top: 15%;
+    }
+    60% {
+        top: 15%;
+    }
+    70% {
+        top: 15%;
+    }
+    100% {
+        top: -20%
+    }
+}
+
+@-o-keyframes statusAnimation {
+    0% {
+        top: -20%;
+    }
+    30% {
+        top: 15%;
+    }
+    40% {
+        top: 15%;
+    }
+    50% {
+        top: 15%;
+    }
+    60% {
+        top: 15%;
+    }
+    70% {
+        top: 15%;
+    }
+    100% {
+        top: -20%
+    }
+}
+
+@keyframes statusAnimation {
+    0% {
+        top: -20%;
+    }
+    30% {
+        top: 15%;
+    }
+    40% {
+        top: 15%;
+    }
+    50% {
+        top: 15%;
+    }
+    60% {
+        top: 15%;
+    }
+    70% {
+        top: 15%;
+    }
+    100% {
+        top: -20%
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #signupForm > div {
+        flex-direction: column;
+    }
+
+    #loginForm {
+        width: 80%;
+        margin: 220px 20px 20px 20px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #signupForm > div {
+        flex-direction: row;
+    }
+
+    #loginForm {
+        width: 30%;
+        margin: 170px 0px 0px 100px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .mobileNavigationBar {
+        display: none;
+    }
+
+    .normalNavigationBar {
+        display: flex;
+    }
+
+    #introBoxIndex {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .mobileNavigationBar {
+        display: block;
+    }
+
+    .normalNavigationBar {
+        display: none;
+    }
+
+    #introBoxIndex {
+        display: none;
+    }
+}

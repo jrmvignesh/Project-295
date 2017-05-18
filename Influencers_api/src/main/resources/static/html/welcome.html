@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>CMPE 295 Master's Project </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/w3.css">
+<script type="text/javascript" src="js/auth.js"></script>
+<style>
+    .mySlides {display:none;}
+</style>
+<body>
+<div class="w3-container">
+    <div class="row main" class="main-login main-center">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+            </div>
+        </div>
+<h1 class="" style="text-align: center;margin: auto;font-family: 'Agency FB'">Welcome to Influencers in a Network</h1>
+<div style="max-width:300px;margin: auto 25%;text-align: left">
+    <img class="mySlides" src="../plugins/images/users/image0.png" style="width:150%">
+    <img class="mySlides" src="../plugins/images/users/image1.png" style="width:150%">
+    <img class="mySlides" src="../plugins/images/users/image2.png" style="width:150%">
+    <img class="mySlides" src="../plugins/images/users/image3.png" style="width:150%">    
+</div>
+</div>
+</div>
+<br><br>
+<div class="w3-modal-content"  onclick="navigateToUrl(event)">
+    <br><br><br><br>
+    <input type="radio" id = "ThresholdBased" name ="radiogrp" value="index.html"  class="col-lg-4 col-sm-6 col-xs-12">
+    <label for="ThresholdBased">Get Threshold Based Influential Node</label>
+    <br><br>
+    <input type="radio" id = "StrongestPath" name ="radiogrp" value="index2.html" class="btn btn-primary login-button">
+    <label for="StrongestPath">Get Strongest Path Based Influential Node</label>
+    <br><br>
+    <input type="radio" id = "EdgeThreshold" name ="radiogrp" value="index3.html" class="btn btn-primary login-button">
+    <label for="EdgeThreshold">Get Edge Threshold Based Influential Node</label>
+    <br><br>
+	</div>
+    
+<script>
+    var myIndex = 0;
+    carousel();
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+
+</body>
+</html>

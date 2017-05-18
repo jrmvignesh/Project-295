@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>CMPE 295 - Identifying Influencers in a Social Network</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="../plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fix-header">
+
+
+
+<!-- ============================================================== -->
+<!-- Preloader -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+    </svg>
+
+</div>
+<!-- ============================================================== -->
+<!-- Wrapper -->
+<!-- ============================================================== -->
+
+
+<div id="wrapper">
+
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <div class="top-left-part">
+                <!-- Logo -->
+                <a class="logo" href="index.html">
+                    <!-- Logo icon image, you can use font-icon also --><b>
+                    <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home" class="dark-logo" /><!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home" class="light-logo" />
+                </b>
+                    <!-- Logo text image you can use text also --><span class="hidden-xs">
+                        <!--This is dark logo text-->
+<img src="../plugins/images/admin-text.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" height="50" alt="home" class="light-logo" />
+                     </span> </a>
+            </div>
+            <!-- /Logo -->
+            <ul class="nav navbar-top-links navbar-right pull-right">
+
+
+            </ul>
+        </div>
+        <!-- /.navbar-header -->
+        <!-- /.navbar-top-links -->
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!-- End Top Navigation -->
+
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+
+    <div class="navbar-default sidebar" role="navigation">
+
+        <div class="sidebar-nav slimscrollsidebar">
+
+            <ul class="nav" id="side-menu">
+                <li style="padding: 70px 0 0;">
+                    <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Threshold Based</a>
+                    <a href="index2.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Strongest Path</a>
+                    <a href="index3.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Edge Thresold</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page Content -->
+    <!-- ============================================================== -->
+
+    <div id="page-wrapper">
+
+        <div class="main-head">
+            <div style="margin: auto;text-align: center">
+                <h1>Demo to get influential Node </h1>
+                <form>
+                    <label for="nodeID" class="cols-sm-2 control-label">Node Count</label>
+                    <input class = "btn-sm" type="text" id="nodeID"><br><br>
+                    <label for="threshold" class="cols-sm-2 control-label">Threshold Value</label>
+                    <input class = "btn-sm" type="text" id="threshold">
+                    <br><br>
+
+                </form>
+                <p id="demo"> </p>
+                <button type="button" class="btn btn-default btn-default" onclick="loadDoc()"> Get the Influential Node </button>
+            </div>
+            <script>
+                function loadDoc() {
+                    var xhttp;
+                    if (window.XMLHttpRequest) {
+                        // code for modern browsers
+                        xhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            
+                        	var jsonString = this.responseText;
+                            var jsonResponse = JSON.parse(jsonString);
+                            
+                            document.getElementById("demo").innerHTML = jsonResponse;
+
+                            var nodeId = jsonResponse["nodeId"];
+                            var totalInfluence =  jsonResponse["totalInfluence"];
+                            var depth = jsonResponse["depth"];
+
+                            console.log(nodeId + " --> " + totalInfluence + " --> " + depth);
+
+                            $('.InfluentialNodeId span').html(nodeId);
+                            $('.TotalInfluence span').html(totalInfluence);
+                            $('.DepthofInfluence span').html(depth);
+
+
+                        }
+                    };
+                   
+                    var nodeId = document.getElementById("nodeID").value;
+                    var threshold = document.getElementById("threshold").value;
+                  
+                    var url = "http://localhost:80/edgethresholdInfluence/"+nodeId+"/"+threshold+"/";
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
+            </script>
+            </br>
+        </div>
+        <div class="container-fluid">
+
+            <!-- /.row -->
+            <!-- ============================================================== -->
+            <!-- Different data widgets -->
+            <!-- ============================================================== -->
+            <!-- .row -->
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Influential Node Id </h3>
+                        <ul class="list-inline two-part">
+                            <li>
+                                <div id="sparklinedash"></div>
+                            </li>
+                            <li class="text-right"><i class="ti-arrow-up text-success"></i>
+                               <div id="InfluentialNodeId">
+                                <span class="counter text-success">0</span>
+                    </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Total Influence</h3>
+                        <ul class="list-inline two-part">
+                            <li>
+                                <div id="sparklinedash2"></div>
+                            </li>
+                            <li class="text-right">
+                                <i class="ti-arrow-up text-purple">
+                                </i>
+                                <div id="TotalInfluence">
+                                <span class="counter text-purple">0</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="white-box analytics-info">
+                        <h3 class="box-title">Traversing upto depths</h3>
+                        <ul class="list-inline two-part">
+                            <li>
+                                <div id="sparklinedash3"></div>
+                            </li>
+                            <li class="text-right">
+                                <i class="ti-arrow-up text-info"></i>
+                                <div id="DepthofInfluence">
+                                <span class="counter text-info">0</span>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--/.row -->
+            <!--row -->
+            <!-- /.row -->
+            <div class="row">
+                <div class="Graphs-Threshold Based">
+                    <div class="white-box">
+                        <h3 class="box-title">Node ID vs Influencer </h3>
+                        
+                        <img id = "GraphsImages1" height = "500" width = "750">
+
+                        <script>
+                            /*
+
+                             var image = document.getElementById("GraphsImages");
+                             var downloadingImage = new Image();
+                             downloadingImage.onload = function(){
+                             document.getElementById('GraphsImages').src = "ThresholdBasedGraph.jpg?random="+new Date().getTime();
+                             };
+                             downloadingImage.src = "ThresholdBasedGraph.jpg";  */
+
+                            window.setInterval(function()
+                            {
+                                document.getElementById('GraphsImages1').src = "../images/influencevsnodes.jpeg?random="+new Date().getTime();
+                            }, 5000);
+                             
+
+                        </script>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- table -->
+            <!-- ============================================================== -->
+
+
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; CMPE 295 - Identifying Influencers in a Social Network </footer>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+
+    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+
+</body>
+
+</html>

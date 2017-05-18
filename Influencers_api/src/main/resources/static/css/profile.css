@@ -1,0 +1,223 @@
+
+.blurredBackground {
+    background: url(../images/pink-sky.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#wrapperProfile {
+    width: 95%;
+    margin: 150px auto 50px auto;
+    background-color: white;
+    border-radius: 0%;
+    border: 1px solid rgba(103, 103, 103, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+    z-index: 1;
+}
+
+nav {
+    position: absolute;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+}
+
+.newsFeedLink {
+    border: none;
+    font-size: 4rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80px;
+    transition-property: background-color;
+    transition-duration: 1s;
+    border-radius: 0;
+}
+
+.newsFeedLink > img {
+    margin-bottom: 20px;
+}
+
+.newsFeedLink:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+    border: none;
+}
+
+.topBlock {
+    display: flex;
+    padding: 50px;
+}
+
+.profilePic {
+    /*-webkit-flex-grow: 0;*/
+    /*-webkit-flex-shrink: 0;*/
+    /*-webkit-flex-basis: 330px;*/
+    /*flex-grow: 0;*/
+    /*flex-shrink: 0;*/
+    /*flex-basis: 330px;*/
+    margin-right: 50px;
+    border-radius: 2%;
+}
+
+.infoDisplay {
+    flex-grow: 1;
+}
+
+.bottomBlock {
+    display: flex;
+    padding: 50px;
+    justify-content: flex-start;
+}
+
+.extraInfoBlock {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 22%;
+    order: 1;
+}
+
+#newsFeedBlockContainer {
+    order: 2;
+}
+
+.newsFeedBlock {
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#charts {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 30%;
+    order: 3;
+}
+
+.newsFeedItem {
+    margin-bottom: 20px;
+}
+
+.badgesBlock {
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    margin-bottom: 20px;
+}
+
+.badgesBlock h2 {
+    margin-left: 10%;
+}
+
+.averageDailySteps {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 2%;
+}
+
+.averageDailySteps h2, h3 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.commentText:hover {
+    color: #96d9ff;
+    text-decoration: none;
+}
+
+.writeCommentLink {
+    color: #96d9ff;
+    text-decoration: none;
+}
+
+.commentBox {
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.profileNameLink:hover {
+    text-decoration: none;
+}
+
+.newsFeedImagesContainer {
+    display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+    .topBlock, .bottomBlock {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #wrapperProfile {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .extraInfoBlock {
+        order: 1;
+    }
+
+    #newsFeedBlockContainer {
+        order: 3;
+    }
+
+    #charts {
+        order: 2;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+    .topBlock, .bottomBlock {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #wrapperProfile {
+        margin: 150px auto 50px auto;
+    }
+
+    .extraInfoBlock {
+        order: 1;
+    }
+
+    #newsFeedBlockContainer {
+        order: 2;
+    }
+
+    #charts {
+        order: 3;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .newsFeedItem {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .newsFeedImagesContainer {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+
+    .newsFeedImagesContainer {
+        flex-direction: row;
+    }
+}
+

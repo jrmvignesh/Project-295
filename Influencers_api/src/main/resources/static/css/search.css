@@ -1,0 +1,64 @@
+
+.bodyBackgroundSearch {
+    background: url(../images/beach.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+#wrapperSearch {
+    width: 70%;
+    margin: 200px 35px 35px 35px;
+    background-color: white;
+    border-radius: 2%;
+    padding: 50px;
+    border: 1px solid rgba(103, 103, 103, 0.8);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+    display: none;
+}
+
+nav {
+    position: absolute;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 20px rgba(103, 103, 103, 0.5);
+}
+
+.addFriendButton {
+    transition-property: color, transform, background-color;
+    transition-duration: 1.5s;
+    padding: 20px 40px 20px 40px;
+    position: absolute;
+    right: 10%
+}
+
+.addFriendButton:hover {
+    color: #0b4385;
+    transform: scale(1.1, 1.05);
+}
+
+@media only screen and (max-width: 800px) {
+    .addFriendButton {
+        padding: 3px;
+        position: absolute;
+        right: 10%;
+        bottom: 15%;
+    }
+
+    #wrapperSearch {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .addFriendButton {
+        padding: 20px 40px 20px 40px;
+        position: absolute;
+        right: 10%;
+    }
+
+    #wrapperSearch {
+        width: 70%;
+    }
+}
